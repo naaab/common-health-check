@@ -1,0 +1,10 @@
+name: GitHub Actions Demo
+on: [push]
+job1:
+    needs: [job2, job3]   # job1 start execution once job2 and job3 succeeds
+  job2:
+    needs: job3           # job2 start execution once job3 succeeds 
+  job3:                   # order of execution: job3 => job2 & job4 => job1 
+  job4:
+    always()              # even if job3 failed, job4 will get executed
+    needs: job3
