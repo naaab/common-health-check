@@ -1,10 +1,22 @@
-name: GitHub Actions Demo
-on: [push]
-job1:
-    needs: [job2, job3]   # job1 start execution once job2 and job3 succeeds
+name: Variables
+
+on:
+  push:
+    branches: [main]
+
+env:
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First script from job1
+        run: echo We use the global workflow variable $BUILD_CONFIGURATION
+
   job2:
-    needs: job3           # job2 start execution once job3 succeeds 
-  job3:                   # order of execution: job3 => job2 & job4 => job1 
-  job4:
-    always()              # even if job3 failed, job4 will get executed
-    needs: job3
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: First script from job2
+        run: echo And here again we use the same workflow variable $BUILD_CONFIGURATION
