@@ -1,7 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 env:
-  worker_type: MICRO
+  - dev.yml  
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
