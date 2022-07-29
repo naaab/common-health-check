@@ -1,7 +1,8 @@
 name: GitHub Actions Demo
 on: [push]
 env:
-  ma_secret: ${{ secrets.ma_secret }}    
+  uses: common-health-check/.github/dev.yml
+  ma_secret: ${{ secrets.ma_secret }}
 
 jobs:
   Explore-GitHub-Actions:
