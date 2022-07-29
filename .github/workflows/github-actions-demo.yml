@@ -2,6 +2,7 @@ name: GitHub Actions Demo
 on: [push]
 env:
   uses: common-health-check/.github/dev.yml
+  f_name: bbb
 
 jobs:
   Explore-GitHub-Actions:
